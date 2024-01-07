@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FirstLetterUpperCasePipe } from "../first-letter-upper-case.pipe";
+import { UsersService } from '../services/users.service';
 
 @Component({
     selector: 'app-stagiaire',
@@ -13,5 +14,18 @@ export class StagiaireComponent {
   formation: string = "Angular";
   formateur : string = "Dr. Mohamed Amine MEZGHICH";
   stagiaires : string[]=["sofien","marwa","hakim","borel","fares","atef"];
+
+  constructor(private service: UsersService){
+    console.log("Constructeur");
+  }
+
+  
+  ngOnInit(): void {
+    console.log("ngOnInit");
+    this.service.getUsers().subscribe(
+      users =>console.log(users)
+    );
+
+  }
 
 }
