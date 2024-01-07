@@ -1,1 +1,11 @@
-<p>stagiaire works!</p>
+<hr/>
+<h2 align="center">Page formation</h2>
+
+<h3>Formation : {{formation}}</h3>
+
+<h4>Formateur : {{formateur}}</h4>
+
+<ul>
+  <li *ngFor="let stagiaire of  stagiaires">{{stagiaire|firstLetterUpperCase}}</li>
+</ul>
+<hr/>
