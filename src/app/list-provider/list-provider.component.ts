@@ -14,7 +14,7 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 export class ListProviderComponent {
   providers: any;
   constructor(private service: ProviderService, private router: Router) { }
-  
+
   ngOnInit() {
     this.refreshListProviders();
   }
@@ -22,7 +22,7 @@ export class ListProviderComponent {
   deleteProvider(myObj: any) {
     //console.log(this.provider);
     this.service.deleteProvider(myObj).subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.refreshListProviders();
     })
   }

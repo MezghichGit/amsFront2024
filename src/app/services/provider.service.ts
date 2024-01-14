@@ -20,7 +20,7 @@ export class ProviderService {
       'email': myform.value.providerEmail,
       'address': myform.value.providerAdress
     }
-    return this.Http.post(this.urlProviders + '/add', this.provider);
+    return this.Http.post(this.urlProviders, this.provider);
   }
 
   updateProvider(myObj: any) {
