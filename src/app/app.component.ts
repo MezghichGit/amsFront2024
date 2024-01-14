@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { PostComponent } from './post/post.component';
     RouterOutlet,
     ContactComponent,
     StagiaireComponent,
+    NavbarComponent,
     PostComponent,
     HttpClientModule
     ],
