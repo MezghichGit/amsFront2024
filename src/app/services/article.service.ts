@@ -13,4 +13,13 @@ export class ArticleService {
   listArticles() {
     return this.Http.get(this.urlArticles);
   }
+
+  createArticle(myform: any) {
+    this.article = {
+      'label': myform.value.label,
+      'price': myform.value.price,
+      'picture': myform.value.picture
+    }
+    return this.Http.post(this.urlArticles+"/"+myform.value.providerId, this.article);
+  }
 }
