@@ -22,6 +22,8 @@ export class ListProviderComponent {
 
   deleteProvider(myObj: any) {
     //console.log(this.provider);
+    let conf=confirm("Are you sure?");
+    if(conf == false) return;
     this.service.deleteProvider(myObj).subscribe(response => {
       //console.log(response);
       this.refreshListProviders();
