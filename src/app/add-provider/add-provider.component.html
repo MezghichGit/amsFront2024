@@ -1,4 +1,4 @@
-<form #myform="ngForm" (ngSubmit)="createProvider(myform)">
+<form #myform="ngForm" (ngSubmit)="createProvider(myform)" enctype="multipart/form-data">
   <div class="form-group">
     <label for="providerName">Provider Name </label>
     <input ngModel name="providerName" size="20" type="text" class="form-control" id="providerName" />
@@ -11,5 +11,11 @@
     <label for="providerAdress">Provider Adresse </label>
     <input ngModel name="providerAdress" size="20" type="text" class="form-control" id="providerAdress" />
   </div>
+
+  <div class="form-group">
+    <label for="providerImage">Provider Logo </label>
+    <input ngModel name="providerImage" class="form-control" placeholder="Image" type="file" (change)="onFileChanged($event)">
+  </div>
+
   <button class="btn btn-primary">Ajouter</button>
 </form>
