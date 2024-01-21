@@ -14,5 +14,11 @@
   </div>
   <input [(ngModel)]="id" name="providerId" type="hidden" />
 
+  Provider picture : <img src="{{urlUpload}}/{{nomOldImage}}" width="20%"/>
+  <div class="form-group">
+    <label for="providerAdress">New Provider picture </label>
+    <input [(ngModel)]="nomNewImage" name="nomNewImage" class="form-control" placeholder="Image" type="file" (change)="onFileChanged($event)">
+  </div>
+
   <button class="btn btn-primary">Mise à jour</button>
 </form>
