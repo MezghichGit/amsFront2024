@@ -11,10 +11,12 @@ export class ProviderService {
   //provider: any;
 
   constructor(private Http: HttpClient) { }
+  basicToken:any = sessionStorage.getItem('basicToken');
 
   listProviders() {
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
     console.log(this.Http.get(this.urlProviders));
-    return this.Http.get(this.urlProviders);
+    return this.Http.get(this.urlProviders, {headers});
   }
 /*
   createProvider(myform: any) {
