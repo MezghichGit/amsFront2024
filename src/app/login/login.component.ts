@@ -26,12 +26,12 @@ export class LoginComponent {
   checkLogin() {
 
     this.loginservice.authenticate(this.username, this.password).subscribe(
-      data => {
+      (data:any) => {
         this.router.navigate([''])
         this.invalidLogin = false
         console.log(data)
       },
-      error => {
+      (error:any) => {
         this.invalidLogin = true
         console.log(error)
       }

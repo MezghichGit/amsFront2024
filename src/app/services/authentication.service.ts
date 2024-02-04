@@ -9,27 +9,19 @@ export class AuthenticationService {
 
   authenticate(username: any, password: any) {
 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    const basicToken = 'Basic ' + btoa(username + ':' + password);
-    return this.httpClient.get('http://127.0.0.1:8080/basicauth', { headers }).pipe(
+
+    let userData:any = this.httpClient.post('http://127.0.0.1:8080/api/auth/signin',
+    {"username":username,"password":password}).pipe(
       map(
-        userData => {
-          sessionStorage.setItem('username', username);
-         //sessionStorage.setItem('password', password);
-          sessionStorage.setItem('basicToken', basicToken);
-          //console.log(username + " " + password);
-          return userData;
+        (data:any) => {
+          sessionStorage.setItem('jwtToken', data.accessToken);
+           sessionStorage.setItem('username', data.username);
+           userData = data;
+
         }
       )
     );
-
-    /*
-    if (username === "amine" && password === "1234") {
-      sessionStorage.setItem('username', username)
-      return true;
-    } else {
-      return false;
-    }*/
+    return userData;
   }
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
