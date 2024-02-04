@@ -7,6 +7,7 @@ import { ListArticleComponent } from './list-article/list-article.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { RegistrationComponent } from './registration/registration.component';
 
 export const routes: Routes = [
 { path: "", pathMatch: "full", redirectTo: "app-navbar" },
@@ -16,5 +17,6 @@ export const routes: Routes = [
 { path: "addArticle", component: AddArticleComponent, canActivate:[AuthGuardService] },
 { path: "listArticle", component: ListArticleComponent, canActivate:[AuthGuardService] },
 { path: 'login', component: LoginComponent },
+{ path: 'register', component: RegistrationComponent },
 { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService] },
 ];

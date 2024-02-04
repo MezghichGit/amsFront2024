@@ -24,6 +24,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link" *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" routerLinkActive="active">Logout</a>
         </li>
 
